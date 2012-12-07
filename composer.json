@@ -7,11 +7,14 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
-    
+    // "minimum-stability": "alpha",
+     //"minimum-stability": "dev",
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
         "zendframework/zendservice-recaptcha": "2.*",
-		"doctrine/orm": "*"     
+		"doctrine/orm": "*",
+		"doctrine/doctrine-module": "dev-master",
+		"doctrine/doctrine-orm-module": "0.*"
     }
 }
