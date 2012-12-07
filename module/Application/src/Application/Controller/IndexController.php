@@ -9,13 +9,47 @@
 
 namespace Application\Controller;
 
+use Doctrine\ORM\EntityManager;
+
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
-    public function indexAction()
+	/**
+	 * 
+	 * @var EntityManager
+	 */
+	protected $em;
+	
+	
+	
+    /**
+	 * @return the $em
+	 */
+	protected function getEm() {
+		if(null === $this->em)
+		{
+			$this->setEm($this->getServiceLocator()->get('Doctrine\ORM\EntityManager'));
+		}
+		return $this->em;
+	}
+
+	/**
+	 * @param \Doctrine\ORM\EntityManager $em
+	 */
+	protected function setEm(EntityManager $em) {
+		$this->em = $em;
+		return $this;
+	}
+
+	public function indexAction()
     {
-        return new ViewModel();
+    	$repo = $this->getEm()->getRepository('Application\Entity\Teste');
+    	$all = $repo->findAll();
+    	
+    	
+    	$arr = array('a1'=>$all);
+        return new ViewModel($arr);
     }
 }

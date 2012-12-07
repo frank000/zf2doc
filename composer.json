@@ -7,16 +7,11 @@
         "zf2"
     ],
     "homepage": "http://framework.zend.com/",
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://packages.zendframework.com/"
-        }
-    ],
+    
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "2.*",
         "zendframework/zendservice-recaptcha": "2.*",
-        "doctrine/common": ">=2.1"
+		"doctrine/orm": "*"     
     }
 }
